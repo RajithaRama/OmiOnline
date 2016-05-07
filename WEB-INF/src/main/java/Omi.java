@@ -155,5 +155,20 @@ public class Omi{
 		return winner;
 		
 	}
+	
+	public int get Winner(){
+		int min = 0;
+		int winner = -1;
+		
+		for(int i=0; i<4; i++){
+			if(scoreboard[i]>min){ 
+				min = scoreboard[i];
+				winner = i;
+			}
+		}
+		
+		return winner;
+		
+	}
 
 }
