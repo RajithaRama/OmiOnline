@@ -13,7 +13,7 @@ public class Omi{
 	
 	Integer []pack;
 	int [][]hands = new int[4][13];
-
+	int []scoreboard = new int[4];//edited
 
 	int trumph;
 	String trumphName;
@@ -125,6 +125,35 @@ public class Omi{
 			}
 			return true;
 		}
+	}
+	
+	public int roundWinner(int lead, int [] cards){
+		int mint = trumph*100;
+		int minl = lead*100;
+		int winner = -1;
+		
+		//if trumps are played
+		for(int i=0;i<4;i++){
+			if((cards[i]/100 == trumph)&& (cards[i]>mint){
+				winner = i;
+				mint = cards[i];
+			}
+		}
+		if(mint>trumph*100){
+			scoreboard[winner]++;
+			return winner;
+		}
+		
+		//if trumps not played
+		for(int i=0;i<4;i++){
+			if((cards[i]/100 == lead)&& (cards[i]>minl){
+				winner = i;
+				minl = cards[i];
+			}
+		}
+		scoreboard[winner]++;
+		return winner;
+		
 	}
 
 }
